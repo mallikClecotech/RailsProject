@@ -1,0 +1,61 @@
+<div class="form" style="width: 800px;height: 600px;padding-top: 1rem;padding-left: 4rem;">
+    <div class="row">
+      <div class="col-sm-5">
+            <p id="notice"><%= notice %></p>
+        <div class="card" style="width: 18rem;height: 31.8rem;color: black;">
+            <img class="card-img-top" src="<%= (url_for(@movie.movie_image))%>" alt="Card image cap" style="height: 15rem;">
+            <div class="card-body">
+              <h5 class="card-title"><%= @movie.title %></h5>
+              <p class="card-text" style="height:2rem;overflow-y: scroll;"><%= @movie.description %></p>
+            </div>
+            <ul class="list-group list-group-flush">
+              <li class="list-group-item"><strong>Director:</strong> <%= @movie.director %></li>
+              <li class="list-group-item"><strong>Duration:</strong> <%= @movie.duration %></li>
+              <li class="list-group-item"><strong>Category:</strong> <%= @movie.category %></li>
+            </ul>
+            <div class="card-body">
+              <% if (user_signed_in? and current_user.id==@movie.user_id) %>
+                <%= link_to 'Edit', edit_movie_path(@movie),class:"card-link" %>  
+                <%= link_to 'Destroy', @movie, method: :delete, data: { confirm: 'Are you sure?' },class:"card-link" %> 
+              <% end %>
+
+              <% if user_signed_in? %>
+                <%= link_to 'New Review', new_movie_review_path(@movie),class:"card-link" %>
+              <% end %>
+            </div>
+        </div>
+      </div>
+    
+      <div class="col-sm-5">
+        <p id="notice"><%= notice %></p>
+        <div class="card " style="width: 18rem; height: 31.8rem; overflow-y: auto;color: black;">
+            <h2 style="margin-bottom: 2rem;text-align: center;">Reviews</h2>
+            <% @movie.reviews.each do |review| %>
+
+            <p style="margin-left:1.5rem;margin-bottom: 2px;">
+              <strong>Commenter:</strong>
+              <%= User.find(review.user_id).email %>
+            </p>
+
+            <p style="margin-left:1.5rem;margin-bottom: -2px;">
+              <strong>Rating:</strong>
+              <%= review.rating %>
+            </p>
+
+            <p style="margin-left:1.5rem;margin-bottom: -2px;">
+              <strong>Comment:</strong>
+              <%= review.comment %>
+            </p>
+
+            <% if (user_signed_in? and current_user.id==review.user_id) %>
+              <%= link_to 'Edit', edit_movie_review_path(@movie,review),style:"margin-left:1.5rem" %>
+              <%= link_to 'Destroy', movie_review_path(@movie,review),method: :delete,data: { confirm: 'Are you sure?' },style:"margin-left:1.5rem;" %>
+            <% end %>
+            <div style="margin-bottom:25px"></div>
+          <%end%>
+        </div>
+      </div>
+
+    </div>
+
+  </div>

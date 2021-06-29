@@ -1,0 +1,83 @@
+<%= render 'navbar'%>
+
+  <!--Banner-->
+  <div class="banner">
+      <div class="banner_contents">
+        <% if notice %>
+          <p class="alert alert-warning" style="margin-top:-2rem"><%= notice %></p>
+        <%end%>
+        <h1>RIVEE</h1>
+        <p class="make_movie"> - Make Movie Reviewed</p>
+      </div>
+      <div class="banner_fadeBottom"></div>
+  </div>
+
+  <!--RIVEE-->
+  <div class="row">
+      <h2>Movies</h2>
+      <div class="row_posters"> 
+         <% @movies.each do |movie| %>
+          <div style="margin-left:10px">
+            <%= link_to image_tag(url_for(movie.movie_image),class:"row_poster row_posterLarge"),movie%>
+          </div>
+        <% end %>
+      </div>
+  </div>
+
+  <!--Action-->
+  <div class="row">
+      <h4>Action Movies</h4>
+      <div class="row_posters">
+        <% @movies.each do |movie| %>
+          <div style="margin-left:10px">
+            <% if movie.category == "Action" or movie.category == "action"%>
+              <%= link_to image_tag(url_for(movie.movie_image),class:"row_poster"),movie%>
+            <%end%>
+          </div>
+        <% end %>
+      </div>
+  </div>
+
+  <!--Comedy-->
+  <div class="row">
+      <h4>Comedy Movies</h4>
+      <div class="row_posters"> 
+        <% @movies.each do |movie| %>
+          <div style="margin-left:10px">
+            <% if movie.category == "Comedy" or movie.category == "comedy"%>
+              <%= link_to image_tag(url_for(movie.movie_image),class:"row_poster"),movie%>
+            <%end%>
+          </div>
+        <% end %>
+      </div>
+  </div>
+
+  <!--Horror-->
+  <div class="row">
+      <h4>Horror Movies</h4>
+      <div class="row_posters"> 
+        <% @movies.each do |movie| %>
+          <div style="margin-left:10px">
+            <% if movie.category == "Horror" or movie.category == "horror"%>
+              <%= link_to image_tag(url_for(movie.movie_image),class:"row_poster"),movie%>
+            <%end%>
+          </div>
+        <% end %>
+      </div>
+  </div>
+
+  <!--Romance-->
+  <div class="row">
+      <h4>Romance Movies</h4>
+      <div class="row_posters"> 
+        <% @movies.each do |movie| %>
+          <div style="margin-left:10px">
+            <% if movie.category == "Romance" or movie.category == "romance"%>
+              <%= link_to image_tag(url_for(movie.movie_image),class:"row_poster"),movie%>
+            <%end%>
+          </div>
+        <% end %>
+      </div>
+
+
+

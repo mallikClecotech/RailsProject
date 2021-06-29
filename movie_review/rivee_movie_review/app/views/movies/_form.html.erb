@@ -1,0 +1,65 @@
+
+<%= form_with(model: movie) do |form| %>
+  <% if movie.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(movie.errors.count, "error") %> prohibited this movie from being saved:</h2>
+
+      <ul>
+        <% movie.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <div class="form row" style="margin-top:7rem;">
+    <div class="form-content">
+      <div class="field">
+        <div class="col-sm-6">
+          <%= form.label :title,class:"col-sm-3 col-form-label" %>
+          <%= form.text_field :title,class:"form-control" %>
+        </div>
+      </div>
+      <div class="field">
+          <div class="col-sm-6">
+            <%= form.label :description,class:"col-sm-3 col-form-label" %>
+            <%= form.text_area :description,class:"form-control des",rows: "3" %>
+        </div>
+      </div>
+      <div class="field">
+        <div class="col-sm-6">
+          <%= form.label :director,class: "col-sm-3 col-form-label" %>
+          <%= form.text_field :director, class:"form-control"  %>
+        </div>
+      </div>
+      <div class="field">
+        <div class="col-sm-6">
+          <%= form.label :duration,class: "col-sm-3 col-form-label" %>
+          <%= form.text_field :duration, class:"form-control"  %>
+        </div>
+      </div>
+      <div class="field">
+        <div class="col-sm-6">
+          <%= form.label :category,class: "col-sm-3 col-form-label" %>
+          <%= form.text_field :category, class:"form-control"  %>
+        </div>
+      </div>
+      <div class="field">
+        <div class="col-sm-6">
+          <%= form.label :choose_image,class: "col-sm-3 col-form-label" %>
+          <%= form.file_field :movie_image, class:"form-control"  %>
+        </div>
+      </div>
+      <div class="actions">
+        <%= form.submit "Create Movie",class:"btn btn-primary form-button" %>
+      </div>
+
+    </div>
+    
+  
+  </div>
+<% end %>
+
+
+
+
+

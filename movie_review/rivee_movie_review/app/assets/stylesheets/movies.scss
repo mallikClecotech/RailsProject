@@ -1,0 +1,183 @@
+// Place all the styles related to the Movies controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: https://sass-lang.com/
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+*{
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+
+body{
+	font-family: 'Poppins', sans-serif;
+	background-color: black;
+	overflow-x: hidden;
+}
+
+.row_poster{
+	width: 100%;
+	max-height: 100px;
+	margin-right: 10px;
+	transition: transform 500ms;
+}
+
+.row_poster:hover{
+	transform: scale(1.08);
+}
+
+.row_posters{
+	display: flex;
+	overflow-y: hidden;
+	overflow-x: scroll;
+	padding: 20px;
+}
+
+.row_posters::-webkit-scrollbar {
+	display: none;
+}
+
+.row_posterLarge{
+	max-height: 250px;
+}
+
+.row_posterLarge:hover{
+	transform: scale(1.09);
+}
+
+.row{
+	color: white;
+	margin-left: 20px;
+}
+
+.banner{
+    background-image: url(asset-path('banner.jpg'));
+	background-size: cover;
+	background-position: center center;
+	color: white;
+	height: 448px;
+	object-fit: contain;
+}
+
+.banner_contents{
+	margin-left: 30px;
+	padding-top: 140px;
+	height: 190px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+}
+
+.banner_contents h1,.banner_contents .make_movie{
+	padding: 1rem;
+	background-image: linear-gradient(to right bottom, black , rgba(51, 51, 51, 0.295));
+	transform: translate(0,50px);
+}
+
+.banner_fadeBottom{
+	margin-top: 145px;
+	height: 8rem;
+	background-image: linear-gradient(180deg,transparent,rgba(37,37,37,0.61),#111);
+}
+
+.nav-logo{
+	width: 80px;
+	object-fit: contain;
+}
+
+.navbar{
+	position: fixed;
+	top: 0;
+	width: 100%;
+	display: flex;
+	justify-content: space-between;
+	z-index: 1;
+	transition-timing-function: ease-in;
+	transition: all 0.5s;
+	background-color: transparent;
+}
+
+.navbar_black{
+	background-color: black;
+}
+
+
+
+
+button {
+    border: none;
+    font-family: inherit;
+    font-size: inherit;
+    color: inherit;
+    background: none;
+    cursor: pointer;
+    padding: 25px 80px;
+    display: inline-block;
+    margin: 10px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-weight: 700;
+    outline: none;
+    position: relative;
+    -webkit-transition: all 0.3s;
+    -moz-transition: all 0.3s;
+    transition: all 0.3s;
+}
+
+button:after {
+    content: '';
+    position: absolute;
+    z-index: -1;
+    -webkit-transition: all 0.3s;
+    -moz-transition: all 0.3s;
+    transition: all 0.3s;
+}
+
+.button-2g {
+    border-radius: 40px;
+}
+.button-2g:hover {
+    box-shadow: 0 4px white;
+    top: 2px;
+}
+.button-2g:active {
+    box-shadow: 0 0 #ab3c3c;
+    top: 6px;
+}
+
+
+.form{
+	position: absolute;
+	left: 50%;
+	top: 43%;
+	transform: translate(-50%,-57%);
+	height: 500px;
+	width: 600px;
+	background-color: white;
+	margin-top: 5rem;
+	border-radius: 25px;
+	padding: 5px;
+	color : black;
+}
+
+.form-content{
+	margin-top: 1rem;
+	margin-left: 4rem;
+}
+
+.col-form-label{
+	margin-left:-1rem;
+	margin-top:5px; 
+}
+
+.form-control{
+	margin-left: 6rem;
+	margin-top: -2rem;
+}
+
+.form-button{
+	margin-top:1rem;
+	margin-left:-1rem;
+}
