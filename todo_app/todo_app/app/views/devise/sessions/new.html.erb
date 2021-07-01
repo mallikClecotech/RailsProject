@@ -1,0 +1,24 @@
+<%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+<div class="container" style="margin-top:2rem">
+  <div class="row">
+    <div class="col-12">
+      <div class="card">
+            <div class="card-body">
+              <h1 style="margin-bottom: 2rem;">Log In</h1>
+              <div class="mb-3">
+                    <%= f.label :email,class:"form-label" %>
+                    <%= f.email_field :email, autofocus: true, autocomplete: "email",class:"form-control",style:"width: 30rem;" %>
+              </div>
+              <div class="mb-3">
+                <%= f.label :password,class:"form-label" %>
+                <%= f.password_field :password, autocomplete: "current-password",class:"form-control",style:"width: 30rem;"  %>
+              </div>
+              <%= f.submit "Log in",class:"btn btn-primary" %>
+              <br><br>
+              <%= render "devise/shared/links"  %>
+            </div>
+      </div>
+    </div>
+  </div>
+</div>
+<% end %>

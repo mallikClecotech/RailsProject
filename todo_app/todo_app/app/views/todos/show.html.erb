@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<div class="container" style="margin-top: 1rem;">
+  <div class="row">
+    <div class="col-12">
+      <div class="card">
+            <div class="card-body">
+              <h1><%= @todo.title %></h1>
+              <%= link_to 'Edit', edit_todo_path(@todo),class:"btn btn-dark" %> |
+              <%= link_to 'Back', todos_path,class:"btn btn-light" %><br><br>
+              <%= link_to 'New Todo List Item', new_todo_todo_list_path(@todo),class:"btn btn-success"%>
+              <% @todo.todo_lists.each do |todo_list| %>
+                  <div class="todo">
+                    <h4 class="card-title"><%= todo_list.title %></h4>
+                    <p><%= todo_list.description %></p>
+                    <%= link_to edit_todo_todo_list_path(@todo,todo_list),class:"btn btn-warning" do%>
+                      <i class="bi bi-pencil-square"></i>
+                    <% end %>
+                    <%= link_to todo_todo_list_path(@todo,todo_list), method: :delete, data: { confirm: 'Are you sure?' },class:"btn btn-danger" do %>
+                     <i class="bi bi-trash-fill"></i>
+                    <% end %>
+                  </div>
+                <% end %>
+            </div>
+      </div>
+    </div>
+  </div>
+</div>
+
